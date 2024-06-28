@@ -18,7 +18,7 @@ import illustrationBookFifthFromRight from "../../assets/images/Slide3/Rectangle
 import illustrationBookSixthYellowFromRight from "../../assets/images/Slide3/Group 400.svg";
 import illustrationHardHat from "../../assets/images/Slide3/Group 374.svg";
 
-export default function Slide3() {
+export default function Slide3({ containerRef }) {
   const nonSlideContent = useRef();
   const styles = {
     slide3Container: css({
@@ -88,7 +88,7 @@ export default function Slide3() {
     <div css={styles.slide3Container}>
       <div ref={nonSlideContent}>
         <Breadcrumb leftPos={"69px"} topPos={"110px"} slideNum={3} />
-        <FullscreenButton />
+        <FullscreenButton appRef={containerRef} />
         <BackArrowUp toSlide={"/Slide2"} />
         <NextButton toSlide={"/Slide4"}/>
       </div>

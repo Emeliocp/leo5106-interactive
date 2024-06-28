@@ -15,7 +15,7 @@ import circlePieceLarge from "../../assets/images/Slide5/Path 5072.svg";
 import circleWhole from "../../assets/images/Slide5/Path 5073.svg";
 import illustration from "../../assets/images/Slide5/Group 402.svg";
 
-export default function Slide5() {
+export default function Slide5({ containerRef }) {
   const nonSlideContent = useRef();
   const slideContent = useRef();
 
@@ -73,7 +73,7 @@ export default function Slide5() {
     <div css={styles.Slide5Container}>
       <div ref={nonSlideContent}>
         <Breadcrumb leftPos={"69px"} topPos={"110px"} slideNum={5} />
-        <FullscreenButton />
+        <FullscreenButton appRef={containerRef}  />
         <BackArrowUp toSlide={"/Slide4"} />
         <NextButton toSlide={"/Slide6"}/>
       </div>

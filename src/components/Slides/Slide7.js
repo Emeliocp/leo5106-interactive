@@ -12,7 +12,7 @@ import illustrationBg from "../../assets/images/Slide7/Rectangle 201.svg";
 import illustration from "../../assets/images/Slide7/Group 386.svg";
 import ContinueButton from "../Buttons/ContinueButton/ContinueLarge";
 
-export default function Slide7() {
+export default function Slide7({ containerRef }) {
   const nonSlideContent = useRef();
   const slideContent = useRef();
 
@@ -57,7 +57,7 @@ export default function Slide7() {
     <div css={styles.slide7Container}>
       <div ref={nonSlideContent}>
         <Breadcrumb leftPos={"69px"} topPos={"110px"} slideNum={7} />
-        <FullscreenButton />
+        <FullscreenButton appRef={containerRef} />
         <BackArrowUp toSlide={"/Slide6"} />
         <ContinueButton/>
       </div>

@@ -15,7 +15,7 @@ import illustration1 from "../../assets/images/Slide4/Mask Group 1.svg";
 import illustration2 from "../../assets/images/Slide4/Group 400.svg";
 import illustration3 from "../../assets/images/Slide4/Group 401.svg";
 
-export default function Slide4() {
+export default function Slide4({ containerRef }) {
   const nonSlideContent = useRef();
   const slideContent = useRef();
 
@@ -86,7 +86,7 @@ export default function Slide4() {
     <div css={styles.slide4Constainer}>
       <div ref={nonSlideContent}>
         <Breadcrumb leftPos={"69px"} topPos={"110px"} slideNum={4} />
-        <FullscreenButton />
+        <FullscreenButton appRef={containerRef} />
         <BackArrowUp toSlide={"/Slide3"} />
         <NextButton toSlide={"/Slide5"}/>
       </div>

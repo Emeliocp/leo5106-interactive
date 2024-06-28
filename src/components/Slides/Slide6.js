@@ -19,7 +19,7 @@ import arrow3 from "../../assets/images/Slide6/Path 5318.svg";
 import arrow4 from "../../assets/images/Slide6/Path 5319.svg";
 import arrow5 from "../../assets/images/Slide6/Path 5320.svg";
 
-export default function () {
+export default function ({ containerRef }) {
   const nonSlideContent = useRef();
   const slideContent = useRef();
 
@@ -158,7 +158,7 @@ export default function () {
     <div css={styles.slide6Container}>
       <div ref={nonSlideContent}>
         <Breadcrumb leftPos={"69px"} topPos={"110px"} slideNum={6} />
-        <FullscreenButton />
+        <FullscreenButton appRef={containerRef} />
         <BackArrowUp toSlide={"/Slide5"} />
         <NextButton toSlide={"/Slide7"} />
       </div>
