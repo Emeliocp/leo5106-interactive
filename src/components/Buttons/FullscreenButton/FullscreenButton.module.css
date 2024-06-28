@@ -1,0 +1,40 @@
+/* .FullscreenButtonContainer {
+    position: relative;
+    width: 52px;
+    height: 52px;
+}
+
+.FullscreenButton {
+    position: relative;
+    left: -5px;
+    top: -5px;
+    padding: 0;
+    margin: 0;
+    width: 52px;
+    height: 52px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.FullscreenButton img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 52px;
+    height: 52px;
+    transition: all 0.3s;
+}
+
+.icon {
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.hidden {
+    opacity: 0;
+} */
