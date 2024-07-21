@@ -16,6 +16,15 @@ import RobotoThinItalic from "./assets/fonts/Roboto-ThinItalic.ttf";
 const GlobalStyles = () => (
   <Global
     styles={css`
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+      }
       @font-face {
         font-family: "Roboto Black";
         src: url(${RobotoBlack}) format("truetype");

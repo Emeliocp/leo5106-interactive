@@ -4,12 +4,13 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import BtnIcon from "../../../assets/images/Splash/Path 5309.svg";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function ContinueButton() {
+export default function ContinueButton({ toSlide }) {
   const backgroundRef = useRef();
   const BtnIconRef = useRef();
   const mountTl = gsap.timeline();
+  const navigate = useNavigate();
 
   useGSAP(() => {
     mountTl.from(backgroundRef.current, {
@@ -57,8 +58,8 @@ export default function ContinueButton() {
   };
 
   const handleClick = () => {
-    Navigate("/Slide8")
-    gsap.to(backgroundRef.current, {opacity: 0, duration: 1, ease: 'power1.in', delay: 3})
+    navigate(toSlide)
+    //gsap.to(backgroundRef.current, {opacity: 0, duration: 1, ease: 'power1.in', delay: 3})
   };
 
   const styles = {

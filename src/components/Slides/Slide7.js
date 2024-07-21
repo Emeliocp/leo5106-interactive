@@ -59,7 +59,7 @@ export default function Slide7({ containerRef }) {
         <Breadcrumb leftPos={"69px"} topPos={"110px"} slideNum={7} />
         <FullscreenButton appRef={containerRef} />
         <BackArrowUp toSlide={"/Slide6"} />
-        <ContinueButton/>
+        <ContinueButton toSlide={"/Slide8"}/>
       </div>
       <div ref={slideContent}>
         <img css={styles.illustrationBg} src={illustrationBg} />

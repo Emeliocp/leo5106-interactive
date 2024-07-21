@@ -13,7 +13,7 @@ const FullscreenButton = ({ appRef }) => {
       position: "relative",
       top: "0px",
       left: "0px",
-      zIndex: "1000", // Ensure it's above other content
+      zIndex: "100", // Ensure it's above other content
     }),
     FullscreenButton: css({
       padding: "0",
