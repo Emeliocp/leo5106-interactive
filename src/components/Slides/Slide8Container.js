@@ -10,10 +10,16 @@ import Slide8p2 from "./Slide8.2";
 import Slide8p3 from "./Slide8.3";
 import HorizontalBackButton from "../HorizontalNav/HorizontalBack";
 import HorizontalNextButton from "../HorizontalNav/HorizontalNext";
+import innerSlideBcNotCurrent from "../../assets/images/Slide8/S8BCNotCurrent.svg";
+import innerSlideBcCurrent from "../../assets/images/Slide8/S8BCCurrent.svg";
 
 export default function Slide8({ containerRef }) {
   const nonSlideContent = useRef();
   const slidesContainerRef = useRef();
+  const innerSlideBc = useRef();
+  const bcImg1 = useRef();
+  const bcImg2 = useRef();
+  const bcImg3 = useRef();
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -106,6 +112,15 @@ export default function Slide8({ containerRef }) {
       left: '794px',
       top: '187px',
       zIndex: '2000'
+    }),
+    slide8InnerBc: css({
+      position: 'absolute',
+      left: '395px',
+      top: '365px',
+      display: 'flex',
+    }),
+    bcImg: css({
+      margin: '3px'
     })
   };
 
@@ -142,6 +157,11 @@ export default function Slide8({ containerRef }) {
               {slide}
             </div>
           ))}
+        </div>
+        <div css={styles.slide8InnerBc} ref={innerSlideBc}>
+          <img ref={bcImg1} css={styles.bcImg} src={currentSlideIndex == 0 ? innerSlideBcCurrent : innerSlideBcNotCurrent}/>
+          <img ref={bcImg2} css={styles.bcImg} src={currentSlideIndex == 1 ? innerSlideBcCurrent : innerSlideBcNotCurrent}/>
+          <img ref={bcImg3} css={styles.bcImg} src={currentSlideIndex == 2 ? innerSlideBcCurrent : innerSlideBcNotCurrent}/>
         </div>
       </div>
       <img css={styles.slideBackground} src={slideBackgroundImg} />

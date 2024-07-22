@@ -1,11 +1,17 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import buttonBackground from "../../../assets/images/Slide8/Rectangle 173.svg";
 import arrow from "../../../assets/images/Slide8/Arrow.svg";
 
 export default function LargeBackButton() {
+  const navigate = useNavigate();
+
+const handleClick = () => {
+  navigate("/");
+}
+
   const styles = {
     buttonContainer: css({
       position: "absolute",
@@ -39,7 +45,7 @@ export default function LargeBackButton() {
   };
 
   return (
-    <div css={styles.buttonContainer}>
+    <div css={styles.buttonContainer} onClick={handleClick}>
       <div css={styles.btnBackground}>
         <img css={styles.buttonImg} src={arrow}/>
         <p css={styles.buttonText}>Back to start</p>
