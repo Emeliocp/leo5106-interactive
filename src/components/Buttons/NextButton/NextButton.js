@@ -16,7 +16,7 @@ export default function NextButton({ toSlide }) {
 
   const goToSlide = () => {
     navigate(toSlide);
-  }
+  };
 
   const handleMouseLeave = () => {
     setNexticon(BtnImgNormal);
@@ -27,23 +27,32 @@ export default function NextButton({ toSlide }) {
       position: "absolute",
       left: "461px",
       top: "478px",
+      margin: "0",
+      padding: "0",
+      background: "none",
+      border: "none",
+      borderRadius: "50px",
+      width: "38px",
+      height: "38px",
+      "&:focus": {
+        outline: "2px solid #809B0A",
+      },
     }),
     icon: css({
       width: "38px",
       height: "38px",
-      cursor: 'pointer',
-      transition: 'All 0.5s'
+      cursor: "pointer",
+      transition: "All 0.5s",
     }),
   };
   return (
-    <div css={styles.NextButtonContainer}>
+    <button css={styles.NextButtonContainer} onClick={goToSlide}>
       <img
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onClick={goToSlide}
         css={styles.icon}
         src={nexticon}
       />
-    </div>
+    </button>
   );
 }

@@ -47,6 +47,20 @@ export default function Slide8({ containerRef }) {
     }
   };
 
+  const innerBcClicked = (slide) => {
+    switch (slide) {
+      case 1:
+        setCurrentSlideIndex(0);
+        break;
+      case 2:
+        setCurrentSlideIndex(1);
+        break;
+      case 3:
+        setCurrentSlideIndex(2);
+        break;
+    }
+  };
+
   const backClicked = () => {
     if (currentSlideIndex > 0 && !isAnimating) {
       setIsAnimating(true);
@@ -105,23 +119,28 @@ export default function Slide8({ containerRef }) {
       position: "absolute",
       left: "18px",
       top: "187px",
-      zIndex: '2000'
+      zIndex: "2000",
     }),
     nextBtn: css({
-      position: 'absolute',
-      left: '794px',
-      top: '187px',
-      zIndex: '2000'
+      position: "absolute",
+      left: "794px",
+      top: "187px",
+      zIndex: "2000",
     }),
     slide8InnerBc: css({
-      position: 'absolute',
-      left: '395px',
-      top: '365px',
-      display: 'flex',
+      position: "absolute",
+      left: "395px",
+      top: "365px",
+      display: "flex",
     }),
     bcImg: css({
-      margin: '3px'
-    })
+      margin: "3px",
+      cursor: 'pointer',
+      "&:focus": {
+        outline: "2px solid #809B0A",
+        borderRadius: "50px"
+      },
+    }),
   };
 
   return (
@@ -151,7 +170,10 @@ export default function Slide8({ containerRef }) {
                 left: 0,
                 width: "100%",
                 height: "100%",
-                transform: index === currentSlideIndex ? "translateX(0)" : "translateX(100%)",
+                transform:
+                  index === currentSlideIndex
+                    ? "translateX(0)"
+                    : "translateX(100%)",
               })}
             >
               {slide}
@@ -159,9 +181,54 @@ export default function Slide8({ containerRef }) {
           ))}
         </div>
         <div css={styles.slide8InnerBc} ref={innerSlideBc}>
-          <img ref={bcImg1} css={styles.bcImg} src={currentSlideIndex == 0 ? innerSlideBcCurrent : innerSlideBcNotCurrent}/>
-          <img ref={bcImg2} css={styles.bcImg} src={currentSlideIndex == 1 ? innerSlideBcCurrent : innerSlideBcNotCurrent}/>
-          <img ref={bcImg3} css={styles.bcImg} src={currentSlideIndex == 2 ? innerSlideBcCurrent : innerSlideBcNotCurrent}/>
+          <img
+            ref={bcImg1}
+            css={styles.bcImg}
+            src={
+              currentSlideIndex == 0
+                ? innerSlideBcCurrent
+                : innerSlideBcNotCurrent
+            }
+            tabIndex={0}
+            onClick={() =>innerBcClicked(1)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                innerBcClicked(1);
+              }
+            }}
+          />
+          <img
+            ref={bcImg2}
+            css={styles.bcImg}
+            src={
+              currentSlideIndex == 1
+                ? innerSlideBcCurrent
+                : innerSlideBcNotCurrent
+            }
+            tabIndex={0}
+            onClick={() => innerBcClicked(2)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                innerBcClicked(2);
+              }
+            }}
+          />
+          <img
+            ref={bcImg3}
+            css={styles.bcImg}
+            src={
+              currentSlideIndex == 2
+                ? innerSlideBcCurrent
+                : innerSlideBcNotCurrent
+            }
+            tabIndex={0}
+            onClick={() => innerBcClicked(3)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                innerBcClicked(3);
+              }
+            }}
+          />
         </div>
       </div>
       <img css={styles.slideBackground} src={slideBackgroundImg} />

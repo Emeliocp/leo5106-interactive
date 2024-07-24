@@ -27,7 +27,15 @@ const handleClick = () => {
       width: "304px",
       height: "400px",
       borderRadius: '0px 0px 150px 150px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      transition: 'background-color 0.3s ease',
+      border: 'none',
+      "&:hover": {
+        backgroundColor: '#102F81'
+      },
+      "&:focus": {
+        outline: "4px solid #809B0A"
+      }
     }),
     buttonText: css({
         position: 'absolute',
@@ -46,10 +54,10 @@ const handleClick = () => {
 
   return (
     <div css={styles.buttonContainer} onClick={handleClick}>
-      <div css={styles.btnBackground}>
+      <button css={styles.btnBackground}>
         <img css={styles.buttonImg} src={arrow}/>
         <p css={styles.buttonText}>Back to start</p>
-      </div>
+      </button>
     </div>
   );
 }

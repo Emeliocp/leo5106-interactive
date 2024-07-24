@@ -25,8 +25,12 @@ export default function HorizontalNextButton({ onClick }) {
       height: "38px",
       background: "none",
       border: "none",
+      borderRadius: '50px',
       outline: "none",
       cursor: "pointer",
+      "&:focus": {
+        outline: "2px solid #809B0A"
+      }
     }),
     icon: css({
         position: 'absolute',

@@ -18,12 +18,16 @@ const FullscreenButton = ({ appRef }) => {
     FullscreenButton: css({
       padding: "0",
       margin: "0",
-      width: "52px",
-      height: "52px",
+      width: "40px",
+      height: "40px",
       background: "none",
       border: "none",
       cursor: "pointer",
       outline: "none",
+      "&:focus" : {
+        outline: "2px solid #3275D0",
+        borderRadius: '1px'
+      }
     }),
     icon: css({
       position: 'absolute',
@@ -58,6 +62,7 @@ const FullscreenButton = ({ appRef }) => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={handleFullscreen}
+        aria-label={`Toggle Fullscreen`}
       >
         <img
           src={FullscreenIconNormal}

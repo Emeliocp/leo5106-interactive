@@ -84,11 +84,17 @@ export default function BTNSplashStart({ onClick, xPosition, yPosition }) {
       cursor: "pointer",
     }),
     BtnText: css({
+      cursor: 'pointer',
+      background: 'none',
+      border: 'none',
       paddingBottom: "0",
       marginTop: "0",
       marginBottom: "5px",
       color: "white",
       fontFamily: "'Roboto Regular', sans-serif",
+      "&:focus": {
+        outline: "2px solid white"
+      }
     }),
     BtnIcon: css({
       margin: "0",
@@ -106,7 +112,7 @@ export default function BTNSplashStart({ onClick, xPosition, yPosition }) {
         onMouseLeave={handleMouseLeave}
         onClick={handleClick}
       >
-        <p css={styles.BtnText}>Click to start</p>
+        <button css={styles.BtnText}>Click to start</button>
         <img css={styles.BtnIcon} src={BtnIcon} ref={BtnIconRef} />
       </div>
     </div>

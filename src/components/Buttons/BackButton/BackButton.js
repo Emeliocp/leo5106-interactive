@@ -70,11 +70,14 @@ export default function BackArrowUp({ onClick, toSlide }) {
           setIsHovered(false);
         }}
         onClick={goToSlide}
+        tabIndex={-1}
       >
         <img
           src={BackButtonUpNormal}
           css={[styles.icon, isHovered ? styles.hover : ""]}
           alt="Back Button"
+          tabIndex={0}
+          aria-label="Back button"
         />
         {/* <img
           src={BackButtonUpHover}

@@ -23,9 +23,13 @@ export default function HorizontalBackButton({ onClick }) {
       width: "38px",
       height: "38px",
       background: "none",
+      borderRadius: '50px',
       border: "none",
       outline: "none",
       cursor: "pointer",
+      "&:focus": {
+        outline: "2px solid #809B0A"
+      }
     }),
     icon: css({
         position: 'absolute',

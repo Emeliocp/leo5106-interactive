@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import React, { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import bcBackground from "../../assets/images/Slide2/BcGreyBar.svg";
 import bcUnseenCircle from "../../assets/images/Slide2/BcUnseenCircleGrey.svg";
@@ -21,6 +22,7 @@ export default function Breadcrumb({ leftPos, topPos, slideNum }) {
   ];
 
   const breadcrumbRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (breadcrumbRef.current) {
@@ -43,6 +45,16 @@ export default function Breadcrumb({ leftPos, topPos, slideNum }) {
       left: btnLeftPos,
       top: btnPositions[index].top,
       zIndex: "10",
+      border: 'none',
+      background: 'none',
+      margin: '0',
+      padding: '0',
+      height: '16px',
+      cursor: index + 1 === slideNum ? "default" : "pointer",
+      "&:focus": {
+        outline: "2px solid #7F9A0A",
+        borderRadius: '60px'
+      },
     }),
     bcCompletedPath: (index) => css({
       position: "absolute",
@@ -59,20 +71,36 @@ export default function Breadcrumb({ leftPos, topPos, slideNum }) {
     return bcUnseenCircle;
   };
 
+  const handleSlideChange = (index) => {
+    if (index === 0) {
+      navigate(`/`);
+    } else if (index + 1 !== slideNum) {
+      navigate(`/Slide${index + 1}`);
+    }
+  };
+
   return (
     <div css={styles.breadcrumbContainer} ref={breadcrumbRef}>
       <img src={bcBackground} alt="" />
       {btnPositions.map((_, index) => (
-        <img
+        <button
           key={index}
           css={styles.slide(index)}
-          src={determineSlideState(index + 1)}
-          alt=""
-        />
+          onClick={() => handleSlideChange(index)}
+          title={`Slide ${index + 1}`}
+          aria-label={`Go to Slide ${index + 1}`}
+          aria-current={index + 1 === slideNum ? "page" : undefined}
+          tabIndex={0} // Make the button focusable
+        >
+          <img
+            src={determineSlideState(index + 1)}
+            alt={`Slide ${index + 1} ${index + 1 === slideNum ? "(current)" : ""}`}
+          />
+        </button>
       ))}
       {btnPositions.map((_, index) => (
         <img
-          key={index}
+          key={index + btnPositions.length}
           css={styles.bcCompletedPath(index)}
           src={bcCompletedPath}
           alt=""

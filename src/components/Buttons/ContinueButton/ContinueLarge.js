@@ -17,7 +17,7 @@ export default function ContinueButton({ toSlide }) {
       opacity: 0,
       duration: 1,
       ease: "power1.inOut",
-      delay: 2.5,
+      //delay: 2.5,
     });
   });
 
@@ -58,7 +58,7 @@ export default function ContinueButton({ toSlide }) {
   };
 
   const handleClick = () => {
-    navigate(toSlide)
+    navigate(toSlide);
     //gsap.to(backgroundRef.current, {opacity: 0, duration: 1, ease: 'power1.in', delay: 3})
   };
 
@@ -66,8 +66,8 @@ export default function ContinueButton({ toSlide }) {
     BtnContainer: css({
       position: "absolute",
       textAlign: "center",
-      top: '458px',
-      left: '398px',
+      top: "458px",
+      left: "398px",
     }),
     BtnBackground: css({
       width: "165px",
@@ -88,6 +88,11 @@ export default function ContinueButton({ toSlide }) {
       marginBottom: "5px",
       color: "white",
       fontFamily: "'Roboto Regular', sans-serif",
+      background: 'none',
+      border: 'none',
+      "&:focus": {
+        outline: "2px solid white"
+      }
     }),
     BtnIcon: css({
       margin: "0",
@@ -105,7 +110,7 @@ export default function ContinueButton({ toSlide }) {
         onMouseLeave={handleMouseLeave}
         onClick={handleClick}
       >
-        <p css={styles.BtnText}>Continue</p>
+        <button css={styles.BtnText}>Continue</button>
         <img css={styles.BtnIcon} src={BtnIcon} ref={BtnIconRef} />
       </div>
     </div>

@@ -87,7 +87,7 @@ export default function SplashPage({ containerRef }) {
           duration: 1.5,
           ease: "bounce.inOut",
         },
-        "-=1"
+        "-=2.5"
       );
   });
 
